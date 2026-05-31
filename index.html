@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Данияр & Амина — 20.08.2026</title>
+  <meta property="og:title" content="Данияр & Амина" />
+  <meta property="og:description" content="20.08.2026 — Зовём вас на узату" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1e3a5f;
+      --blue: #2c5282;
+      --mid: #4a7ab5;
+      --soft: #7fa5c8;
+      --mist: #b8cfe0;
+      --pale: #e8f0f8;
+      --cream: #faf7f2;
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --text: #2d3748;
+      --sub: #718096;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── COVER ─────────────────────────────────────────── */
+    #cover {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #0d2240 0%, #1a3a6b 50%, #0d2240 100%);
+      overflow: hidden;
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    #cover.hidden { opacity: 0; pointer-events: none; transform: scale(1.04); }
+
+    .cover-stars {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 80%, rgba(255,255,255,.3) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 45% 45%, rgba(255,255,255,.5) 0%, transparent 100%);
+    }
+
+    .cover-ornament {
+      position: absolute;
+      color: rgba(201,169,110,.15);
+      font-size: 200px;
+      line-height: 1;
+      user-select: none;
+      animation: float 8s ease-in-out infinite;
+    }
+    .cover-ornament.top-left  { top: -40px; left: -40px; animation-delay: 0s; }
+    .cover-ornament.bot-right { bottom: -40px; right: -40px; animation-delay: -4s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(5deg); }
+    }
+
+    .cover-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      animation: fadeUp .9s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    .cover-sub {
+      font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--mist); margin-bottom: 28px;
+      animation: fadeUp .9s .1s ease both;
+    }
+    .cover-names {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      line-height: 1.05;
+      animation: fadeUp .9s .2s ease both;
+    }
+    .cover-names .bride { font-size: clamp(42px,10vw,64px); }
+    .cover-names .amp   { font-size: clamp(22px,5vw,32px); color: var(--gold); font-style: italic; display: block; margin: 6px 0; }
+    .cover-names .groom { font-size: clamp(42px,10vw,64px); }
+
+    .cover-date {
+      margin-top: 20px; color: var(--gold-light);
+      font-size: 16px; letter-spacing: 4px;
+      animation: fadeUp .9s .3s ease both;
+    }
+
+    .cover-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin: 20px auto;
+      animation: fadeUp .9s .35s ease both;
+    }
+    .cover-divider span { color: var(--gold); font-size: 16px; }
+    .cover-divider .line { width: 50px; height: 1px; background: rgba(201,169,110,.4); }
+
+    .cover-btn {
+      margin-top: 10px;
+      padding: 14px 48px;
+      background: transparent;
+      border: 1px solid rgba(201,169,110,.6);
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; letter-spacing: 3px;
+      cursor: pointer; border-radius: 2px;
+      transition: background .3s, color .3s;
+      animation: fadeUp .9s .45s ease both;
+    }
+    .cover-btn:hover {
+      background: rgba(201,169,110,.15);
+      color: #fff;
+    }
+
+    /* ── MAIN PAGE ──────────────────────────────────────── */
+    #page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 80px;
+    }
+    #page.visible { display: flex; }
+
+    .section {
+      width: 100%; max-width: 480px;
+      padding: 0 28px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .section.appear { opacity: 1; transform: none; }
+
+    /* ── HERO ────────────────────────── */
+    .hero { padding-top: 64px; }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--sub); margin-bottom: 28px;
+    }
+    .hero-names {
+      font-family: 'Playfair Display', serif;
+      color: var(--navy); line-height: 1.05;
+    }
+    .hero-names .bride { font-size: clamp(44px,11vw,68px); }
+    .hero-names .amp   { font-size: clamp(22px,5vw,30px); color: var(--gold); font-style: italic; display: block; margin: 6px 0; }
+    .hero-names .groom { font-size: clamp(44px,11vw,68px); }
+
+    .hero-text {
+      margin-top: 24px;
+      font-size: 17px; line-height: 1.9; color: var(--sub);
+      font-style: italic;
+    }
+
+    /* ── DIVIDER ─────────────────────── */
+    .divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 32px auto; width: 100%; max-width: 320px;
+    }
+    .divider .fl  { color: var(--mist); font-size: 16px; }
+    .divider .ln  { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--mist), transparent); }
+
+    /* ── CARD ────────────────────────── */
+    .card {
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(184,207,224,.5);
+      border-radius: 4px;
+      padding: 32px 28px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 24px rgba(30,58,95,.06);
+    }
+
+    .label {
+      font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 16px;
+    }
+    .big-date {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px; color: var(--navy); line-height: 1; letter-spacing: 2px;
+    }
+    .month { font-size: 13px; letter-spacing: 5px; color: var(--sub); text-transform: uppercase; margin: 4px 0; }
+    .year  { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--mid); }
+
+    /* schedule */
+    .schedule { list-style: none; }
+    .schedule li {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; padding: 14px 0;
+      border-bottom: 1px solid rgba(184,207,224,.3);
+    }
+    .schedule li:last-child { border-bottom: none; }
+    .sch-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; color: var(--navy); min-width: 52px; text-align: right;
+    }
+    .sch-sep { width: 1px; height: 28px; background: rgba(184,207,224,.6); }
+    .sch-label { font-size: 15px; color: var(--sub); text-align: left; min-width: 180px; }
+
+    /* ── COUNTDOWN ───────────────────── */
+    .countdown {
+      display: flex; justify-content: center; gap: 12px; margin: 8px 0;
+    }
+    .cd-unit { text-align: center; }
+    .cd-val {
+      background: rgba(30,58,95,.06);
+      border: 1px solid rgba(184,207,224,.5);
+      border-radius: 6px;
+      padding: 12px 10px;
+      min-width: 58px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; color: var(--navy);
+      letter-spacing: 1px;
+    }
+    .cd-lbl { font-size: 10px; color: var(--sub); margin-top: 5px; letter-spacing: 1px; }
+
+    /* ── VENUE ───────────────────────── */
+    .venue-name { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--navy); margin-bottom: 8px; }
+    .venue-addr { font-size: 15px; color: var(--sub); line-height: 1.7; }
+    .map-btn {
+      display: inline-block; margin-top: 16px;
+      padding: 10px 28px;
+      border: 1px solid rgba(44,82,130,.35);
+      border-radius: 3px;
+      color: var(--blue); font-size: 14px; letter-spacing: 2px;
+      text-decoration: none; font-family: 'Cormorant Garamond', serif;
+      transition: background .25s;
+    }
+    .map-btn:hover { background: rgba(44,82,130,.07); }
+
+    /* ── RSVP ────────────────────────── */
+    .rsvp-intro { font-size: 16px; color: var(--sub); font-style: italic; margin-bottom: 24px; }
+
+    .rsvp-form { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+
+    .rsvp-input {
+      width: 100%; max-width: 340px;
+      padding: 13px 16px;
+      border: 1px solid rgba(184,207,224,.7);
+      border-radius: 3px;
+      background: rgba(255,255,255,.8);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; color: var(--navy);
+      text-align: center; outline: none;
+      transition: border-color .2s;
+    }
+    .rsvp-input:focus { border-color: var(--mid); }
+    .rsvp-input::placeholder { color: #a0aec0; }
+
+    .rsvp-options { width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 8px; }
+    .rsvp-opt {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid rgba(184,207,224,.5);
+      border-radius: 3px;
+      background: rgba(255,255,255,.6);
+      cursor: pointer; font-size: 16px; color: var(--navy);
+      transition: border-color .2s, background .2s;
+      user-select: none;
+    }
+    .rsvp-opt.selected {
+      border-color: var(--blue);
+      background: rgba(44,82,130,.07);
+    }
+    .rsvp-opt input { accent-color: var(--blue); }
+
+    .rsvp-btn {
+      margin-top: 8px; padding: 13px 48px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff; border: none; border-radius: 3px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; letter-spacing: 2px;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .rsvp-btn:hover { opacity: .9; }
+    .rsvp-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    .rsvp-success {
+      display: none; text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: var(--navy); line-height: 1.6;
+    }
+    .rsvp-success.show { display: block; }
+    .rsvp-form.hide { display: none; }
+
+    /* ── FOOTER ──────────────────────── */
+    .footer {
+      margin-top: 20px; text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--navy); font-style: italic;
+      line-height: 1.7;
+    }
+    .footer-flowers { color: var(--mist); font-size: 24px; margin-top: 12px; }
+
+    /* ── BG ornaments ────────────────── */
+    .bg-orn {
+      position: fixed; pointer-events: none; user-select: none;
+      color: rgba(184,207,224,.18); font-size: 140px; line-height: 1;
+      animation: float 10s ease-in-out infinite;
+    }
+    .bg-orn.tl { top: 60px;  left: -20px;  animation-delay: 0s; }
+    .bg-orn.br { bottom: 80px; right: -20px; animation-delay: -5s; }
+
+    /* ── ERROR MSG ────────────────────── */
+    .err-msg {
+      display: none; color: #c0392b;
+      font-size: 14px; margin-top: 4px;
+    }
+    .err-msg.show { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════ -->
+<div id="cover">
+  <div class="cover-stars"></div>
+  <div class="cover-ornament top-left">✿</div>
+  <div class="cover-ornament bot-right">✿</div>
+
+  <div class="cover-content">
+    <div class="cover-sub">Приглашаем вас</div>
+    <div class="cover-names">
+      <div class="bride">Амина</div>
+      <span class="amp">&amp;</span>
+      <div class="groom">Данияр</div>
+    </div>
+    <div class="cover-date">20 · 08 · 2026</div>
+    <div class="cover-divider">
+      <div class="line"></div>
+      <span>✿</span>
+      <div class="line"></div>
+    </div>
+    <button class="cover-btn" onclick="openInvite()">Открыть &nbsp;✿</button>
+  </div>
+</div>
+
+<!-- ══ BACKGROUND ORNAMENTS ═══════════════════════════════ -->
+<span class="bg-orn tl">✿</span>
+<span class="bg-orn br">✿</span>
+
+<!-- ══ MAIN PAGE ══════════════════════════════════════════ -->
+<div id="page">
+
+  <!-- HERO -->
+  <div class="section hero" data-delay="0">
+    <div class="hero-eyebrow">Приглашаем вас</div>
+    <div class="hero-names">
+      <div class="bride">Амина</div>
+      <span class="amp">&amp;</span>
+      <div class="groom">Данияр</div>
+    </div>
+    <p class="hero-text">
+      Приглашаем вас<br>
+      стать почетными гостями<br>
+      за нашим свадебным столом!
+    </p>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- DATE -->
+  <div class="section" data-delay="100">
+    <div class="card">
+      <div class="label">День</div>
+      <div class="big-date">20</div>
+      <div class="month">Август</div>
+      <div class="year">2026</div>
+    </div>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="section" data-delay="150">
+    <div class="card">
+      <div class="label">Информация</div>
+      <ul class="schedule">
+        <li>
+          <span class="sch-time">15:00</span>
+          <div class="sch-sep"></div>
+          <span class="sch-label">Қонақтар жиналуы</span>
+        </li>
+        <li>
+          <span class="sch-time">15:00</span>
+          <div class="sch-sep"></div>
+          <span class="sch-label">Узату</span>
+        </li>
+        <li>
+          <span class="sch-time">15:00</span>
+          <div class="sch-sep"></div>
+          <span class="sch-label">Начало мероприятия</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="section" data-delay="200">
+    <div class="label">До узату осталось</div>
+    <div class="countdown">
+      <div class="cd-unit"><div class="cd-val" id="cd-d">--</div><div class="cd-lbl">дней</div></div>
+      <div class="cd-unit"><div class="cd-val" id="cd-h">--</div><div class="cd-lbl">часов</div></div>
+      <div class="cd-unit"><div class="cd-val" id="cd-m">--</div><div class="cd-lbl">минут</div></div>
+      <div class="cd-unit"><div class="cd-val" id="cd-s">--</div><div class="cd-lbl">секунд</div></div>
+    </div>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- VENUE -->
+  <div class="section" data-delay="250">
+    <div class="card">
+      <div class="label">Адрес</div>
+      <div class="venue-name">Название ресторана</div>
+      <div class="venue-addr">
+        город Астана<br>
+        Адрес
+      </div>
+      <a href="#" class="map-btn">Перейти на карту ✿</a>
+    </div>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section" data-delay="300">
+    <div class="card">
+      <div class="label">Подтвердить · RSVP</div>
+      <p class="rsvp-intro">Просим вас подтвердить явку</p>
+
+      <div class="rsvp-form" id="rsvpForm">
+        <input class="rsvp-input" id="rsvpName" type="text" placeholder="Аты-Жөніңіз" autocomplete="name" />
+        <span class="err-msg" id="nameErr">Напиши ФИО</span>
+
+        <div class="rsvp-options" id="rsvpOptions">
+          <label class="rsvp-opt" onclick="selectOpt(this)">
+            <input type="radio" name="attend" value="Приду" /> Приду
+          </label>
+          <label class="rsvp-opt" onclick="selectOpt(this)">
+            <input type="radio" name="attend" value="Приду с супругом" /> Приду с супругом
+          </label>
+          <label class="rsvp-opt" onclick="selectOpt(this)">
+            <input type="radio" name="attend" value="Не приду" /> Не приду
+          </label>
+        </div>
+        <span class="err-msg" id="optErr">Выберите ответ</span>
+
+        <button class="rsvp-btn" id="rsvpBtn" onclick="submitRSVP()">Отправить</button>
+      </div>
+
+      <div class="rsvp-success" id="rsvpSuccess">
+        Спасибо! 🤍<br>
+        Ответ принят.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider section" data-delay="50">
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div><span class="fl">✿</span>
+    <div class="ln"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="section footer" data-delay="350">
+    Келіңіздер, тойымыздың<br>қадірлі қонағы болыңыздар!
+    <div class="footer-flowers">✿ &nbsp; ✿ &nbsp; ✿</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  // ── CONFIG ────────────────────────────────────────────────
+  // После настройки Google Apps Script — вставь сюда URL:
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyql4t8GY7CY54zQp8c86Y0qequPd1a-c7jGPDQRImBQtPMwrZLOQ_Yue9fHbxJPkeK/exec';
+  const WEDDING_DATE = new Date('2026-08-20T15:00:00');
+  // ─────────────────────────────────────────────────────────
+
+  function openInvite() {
+    document.getElementById('cover').classList.add('hidden');
+    const page = document.getElementById('page');
+    page.classList.add('visible');
+    setTimeout(revealSections, 100);
+    startCountdown();
+  }
+
+  function revealSections() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((el, i) => {
+      const delay = parseInt(el.dataset.delay || 0);
+      setTimeout(() => el.classList.add('appear'), delay + i * 60);
+    });
+  }
+
+  // Countdown
+  function startCountdown() {
+    function update() {
+      const now = new Date();
+      const diff = WEDDING_DATE - now;
+      if (diff <= 0) {
+        ['d','h','m','s'].forEach(u => document.getElementById('cd-'+u).textContent = '00');
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    update();
+    setInterval(update, 1000);
+  }
+
+  // Option select
+  function selectOpt(label) {
+    document.querySelectorAll('.rsvp-opt').forEach(l => l.classList.remove('selected'));
+    label.classList.add('selected');
+    label.querySelector('input').checked = true;
+    document.getElementById('optErr').classList.remove('show');
+  }
+
+  // Submit RSVP
+  async function submitRSVP() {
+    const name = document.getElementById('rsvpName').value.trim();
+    const selected = document.querySelector('.rsvp-opt.selected input');
+
+    let valid = true;
+    if (!name) {
+      document.getElementById('nameErr').classList.add('show');
+      valid = false;
+    } else {
+      document.getElementById('nameErr').classList.remove('show');
+    }
+    if (!selected) {
+      document.getElementById('optErr').classList.add('show');
+      valid = false;
+    } else {
+      document.getElementById('optErr').classList.remove('show');
+    }
+    if (!valid) return;
+
+    const btn = document.getElementById('rsvpBtn');
+    btn.disabled = true;
+    btn.textContent = 'Загружается...';
+
+    const payload = {
+      name: name,
+      attendance: selected.value,
+      timestamp: new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty' })
+    };
+
+    try {
+      if (SHEET_URL === 'https://script.google.com/macros/s/AKfycbyql4t8GY7CY54zQp8c86Y0qequPd1a-c7jGPDQRImBQtPMwrZLOQ_Yue9fHbxJPkeK/exec') {
+        // Dev mode: just show success without real network call
+        console.log('RSVP (dev mode):', payload);
+      } else {
+        await fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+      document.getElementById('rsvpForm').classList.add('hide');
+      document.getElementById('rsvpSuccess').classList.add('show');
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = 'Отправить';
+      alert('Ошибка. Попробуйте снова.');
+    }
+  }
+</script>
+</body>
+</html>
