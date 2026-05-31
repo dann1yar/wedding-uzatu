@@ -468,14 +468,14 @@
   // ─────────────────────────────────────────────────────────
 
   function openInvite() {
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 0.4;
+    audio.play().catch(() => {});  // запускаем первым, в момент tap
     document.getElementById('cover').classList.add('hidden');
     const page = document.getElementById('page');
     page.classList.add('visible');
     setTimeout(revealSections, 100);
     startCountdown();
-    const audio = document.getElementById('bgMusic');
-    audio.volume = 0.4;
-    audio.play();
   }
 
   function revealSections() {
