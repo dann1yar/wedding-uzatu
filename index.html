@@ -473,6 +473,15 @@
     page.classList.add('visible');
     setTimeout(revealSections, 100);
     startCountdown();
+    playMusic();
+  }
+  
+  function playMusic() {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/9tJa_HKRtNc?autoplay=1&loop=1&playlist=9tJa_HKRtNc&controls=0';
+    iframe.allow = 'autoplay';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
   }
 
   function revealSections() {
