@@ -476,13 +476,9 @@
     playMusic();
   }
   
-  function playMusic() {
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/9tJa_HKRtNc?autoplay=1&loop=1&playlist=9tJa_HKRtNc&controls=0';
-    iframe.allow = 'autoplay';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-  }
+  const audio = document.getElementByID('bgMusic');
+  audio.volume = 0.4;
+  audio.play();
 
   function revealSections() {
     const sections = document.querySelectorAll('.section');
@@ -555,5 +551,8 @@
     }
   }
 </script>
+<audio id="bgMusic" loop>
+  <source src="https://www.dropbox.com/scl/fi/woi2vebbdy0dgkepr64md/Stephen-Sanchez-Until-I-Found-You.mp3?rlkey=kn40dd2euzsob4lcp5iarg1wu&st=yet1ok00&dl=1" type="audio/mpeg">
+</audio>
 </body>
 </html>
