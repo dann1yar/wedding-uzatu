@@ -473,12 +473,10 @@
     page.classList.add('visible');
     setTimeout(revealSections, 100);
     startCountdown();
-    playMusic();
+    const audio = document.getElementByID('bgMusic');
+    audio.volume = 0.4;
+    audio.play();
   }
-  
-  const audio = document.getElementByID('bgMusic');
-  audio.volume = 0.4;
-  audio.play();
 
   function revealSections() {
     const sections = document.querySelectorAll('.section');
